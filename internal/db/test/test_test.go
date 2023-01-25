@@ -101,7 +101,7 @@ func TestRunCommand(t *testing.T) {
 		// Run test
 		err := Run(context.Background(), fsys)
 		// Check error
-		assert.ErrorContains(t, err, "Missing config: open supabase/config.toml: file does not exist")
+		assert.ErrorContains(t, err, "cannot find \x1b[1msupabase/config.toml\x1b[0m in ")
 	})
 
 	t.Run("throws error on missing database", func(t *testing.T) {

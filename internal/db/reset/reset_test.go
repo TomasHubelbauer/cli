@@ -25,7 +25,7 @@ func TestResetCommand(t *testing.T) {
 
 	t.Run("throws error on missing config", func(t *testing.T) {
 		err := Run(context.Background(), afero.NewMemMapFs())
-		assert.ErrorContains(t, err, "Missing config: open supabase/config.toml: file does not exist")
+		assert.ErrorContains(t, err, "cannot find \x1b[1msupabase/config.toml\x1b[0m in ")
 	})
 
 	t.Run("throws error on db is not started", func(t *testing.T) {

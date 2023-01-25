@@ -72,7 +72,7 @@ func TestSwitchCommand(t *testing.T) {
 		// Run test
 		err := Run(context.Background(), "target", fsys)
 		// Check error
-		assert.ErrorContains(t, err, "Have you set up the project with supabase init?")
+		assert.ErrorContains(t, err, "cannot find \x1b[1msupabase/config.toml\x1b[0m in ")
 	})
 
 	t.Run("throws error on malformed config", func(t *testing.T) {

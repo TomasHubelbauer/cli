@@ -19,7 +19,7 @@ import (
 func TestStartCommand(t *testing.T) {
 	t.Run("throws error on missing config", func(t *testing.T) {
 		err := Run(context.Background(), afero.NewMemMapFs(), []string{}, false)
-		assert.ErrorContains(t, err, "Have you set up the project with supabase init?")
+		assert.ErrorContains(t, err, "cannot find \x1b[1msupabase/config.toml\x1b[0m in ")
 	})
 
 	t.Run("throws error on invalid config", func(t *testing.T) {

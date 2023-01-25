@@ -52,7 +52,7 @@ func TestStopCommand(t *testing.T) {
 		// Run test
 		err := Run(context.Background(), false, fsys)
 		// Check error
-		assert.ErrorContains(t, err, "Missing config: open supabase/config.toml: file does not exist")
+		assert.ErrorContains(t, err, "cannot find \x1b[1msupabase/config.toml\x1b[0m in ")
 	})
 
 	t.Run("throws error on stop failure", func(t *testing.T) {
