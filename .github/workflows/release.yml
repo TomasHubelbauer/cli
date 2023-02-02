@@ -22,6 +22,7 @@ jobs:
         uses: cycjimmy/semantic-release-action@v3
         with:
           semantic_version: 18
+          branch: { name: "main", prerelease: true }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -60,3 +61,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
+
+      - if: needs.release.outputs.new-release-published == 'true'
+        run: gh release edit v${{ needs.release.outputs.new-release-version }} --latest
